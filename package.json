@@ -109,7 +109,7 @@
     "release-script": "^1.0.2",
     "rimraf": "^2.5.3",
     "semver": "^5.2.0",
-    "sinon": "^1.17.4",
+    "sinon": "^2.1.0",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "teaspoon": "^6.4.2",
@@ -127,6 +127,7 @@
     "prop-types": "^15.5.6",
     "react-overlays": "^0.6.12",
     "react-prop-types": "^0.4.0",
+    "react-swipe": "^5.0.6",
     "uncontrollable": "^4.0.1",
     "warning": "^3.0.0"
   },
