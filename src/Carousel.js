@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
+import ReactSwipe from 'react-swipe';
 
 import CarouselCaption from './CarouselCaption';
 import CarouselItem from './CarouselItem';
@@ -346,23 +347,24 @@ class Carousel extends React.Component {
       >
         {indicators && this.renderIndicators(children, activeIndex, bsProps)}
 
-        <div className={prefix(bsProps, 'inner')}>
-          {ValidComponentChildren.map(children, (child, index) => {
-            const active = index === activeIndex;
-            const previousActive = slide && index === previousActiveIndex;
+        <ReactSwipe swipeOptions={{continuous: false}}>
+          <div className={prefix(bsProps, 'inner')}>
+            {ValidComponentChildren.map(children, (child, index) => {
+              const active = index === activeIndex;
+              const previousActive = slide && index === previousActiveIndex;
 
-            return cloneElement(child, {
-              active,
-              index,
-              animateOut: previousActive,
-              animateIn: active && previousActiveIndex != null && slide,
-              direction,
-              onAnimateOutEnd: previousActive ?
-                this.handleItemAnimateOutEnd : null,
-            });
-          })}
-        </div>
-
+              return cloneElement(child, {
+                active,
+                index,
+                animateOut: previousActive,
+                animateIn: active && previousActiveIndex != null && slide,
+                direction,
+                onAnimateOutEnd: previousActive ?
+                  this.handleItemAnimateOutEnd : null,
+              });
+            })}
+          </div>
+        </ReactSwipe>
         {controls && this.renderControls({
           wrap,
           children,
